@@ -7,6 +7,7 @@ const weather = require("./Utils/weather");
 
 
 const app = express();
+const port = process.env.PORT || 3000
 
 const filePath = path.join(__dirname, "../public");
 const viewPath = path.join(__dirname, "../temp1/views");
@@ -98,6 +99,6 @@ app.get("*", (req, res)=>{
     })
 })
 
-app.listen(3000, ()=>{
-    console.log("Server Port 3000 is running")
+app.listen(port, ()=>{
+    console.log("Server Port "+port+" is running")
 });
