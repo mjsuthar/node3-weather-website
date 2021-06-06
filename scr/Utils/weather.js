@@ -19,8 +19,10 @@ const weather = (lat, long, callback) => {
             const temp = resp.body.data[0].temp;
             const rainChance = resp.body.data[0].precip;
             const summary = resp.body.data[0].weather.description;
-             
-            callback(undefined , summary+". It is currently "+temp+" degree out. There is a "+rainChance+"% chances of rain.")
+            const highTemp = resp.body.data[0].max_temp;
+            const lowTemp = resp.body.data[0].low_temp;
+            
+            callback(undefined , summary+". It is currently "+temp+" degree out. The high today is "+highTemp+" with low of "+lowTemp+". There is a "+rainChance.toFixed(2)+"% chances of rain.")
          }
         })
 }
